@@ -1,8 +1,5 @@
 package com.project.blog.Controller;
 import com.project.blog.Models.*;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.project.blog.Service.BlogService;
 import java.util.*;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +15,15 @@ import org.springframework.web.bind.annotation.*;
 public class BlogController {
     private final BlogService blogService;
 
+@PostMapping("/users")
+public ResponseEntity<User> createUser(@RequestBody User user) {
+    return ResponseEntity.ok(blogService.createUser(user));
+}
+
+@GetMapping("/users")
+public List<User> getAllUsers() {
+    return blogService.getAllUsers();
+}
     @PostMapping("/users/{userId}/posts")
     public ResponseEntity<Post> createPost(@PathVariable Long userId,@RequestBody Post post) {
 
