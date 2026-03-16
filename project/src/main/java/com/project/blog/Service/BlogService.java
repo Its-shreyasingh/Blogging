@@ -13,6 +13,14 @@ import lombok.RequiredArgsConstructor;
 public class BlogService {
     private final PostRepository postRepository;
     private final UserRepository userRepository;
+    
+    public User createUser(User user) {
+    return userRepository.save(user);
+    }
+
+    public List<User> getAllUsers() {
+    return userRepository.findAll();
+    }
 
     public Post createPost(Long userId, Post post)
     {
