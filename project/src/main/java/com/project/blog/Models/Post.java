@@ -1,4 +1,5 @@
 package com.project.blog.Models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.project.blog.Models.*;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.*;
@@ -28,6 +29,7 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User author;
 
 }

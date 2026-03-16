@@ -1,4 +1,6 @@
 package com.project.blog.Models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.project.blog.Models.*;
 import jakarta.persistence.*;
 import lombok.*;
@@ -21,5 +23,6 @@ public class User {
     private String email;
     
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Post> posts=new ArrayList<>();
 }
